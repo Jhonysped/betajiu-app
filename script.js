@@ -1,6 +1,10 @@
 let perfilAtual = "";
 
-let aulas = [];
+let aulas = JSON.parse(localStorage.getItem("aulas")) || [];
+
+let alunos = JSON.parse(localStorage.getItem("alunos")) || [];
+
+
 
 
 
@@ -19,23 +23,17 @@ perfilAtual="Administrador";
 
 }
 
-
-
 else if(usuario=="professor" && senha=="1234"){
 
 perfilAtual="Professor";
 
 }
 
-
-
 else if(usuario=="aluno" && senha=="1234"){
 
 perfilAtual="Aluno";
 
 }
-
-
 
 else{
 
@@ -57,12 +55,11 @@ document.getElementById("tituloPainel").innerHTML =
 "Painel - " + perfilAtual;
 
 
-
 mostrarMenu();
 
-
-
 }
+
+
 
 
 
@@ -71,7 +68,7 @@ mostrarMenu();
 function mostrarMenu(){
 
 
-let opcoes = "";
+let opcoes="";
 
 
 
@@ -82,7 +79,7 @@ opcoes =
 
 "<button onclick='abrirAulas()'>📅 Aulas</button><br><br>"+
 
-"<button>👥 Alunos</button><br><br>"+
+"<button onclick='abrirAlunos()'>👥 Alunos</button><br><br>"+
 
 "<button>🥋 Professores</button><br><br>"+
 
@@ -90,52 +87,38 @@ opcoes =
 
 "<button>📊 Relatórios</button>";
 
-
-
 }
-
 
 
 if(perfilAtual=="Professor"){
 
 
-opcoes =
+opcoes=
 
 "👥 Minhas turmas<br><br>"+
-
 "✅ Fazer chamada<br><br>"+
-
 "📝 Avaliações<br><br>"+
-
 "🥋 Graduações";
 
 
-
 }
-
 
 
 if(perfilAtual=="Aluno"){
 
 
-opcoes =
+opcoes=
 
 "🥋 Minha graduação<br><br>"+
-
 "📅 Meus treinos<br><br>"+
-
 "📈 Minha evolução<br><br>"+
-
 "📢 Avisos";
-
 
 
 }
 
 
-
-document.getElementById("opcoes").innerHTML = opcoes;
-
+document.getElementById("opcoes").innerHTML=opcoes;
 
 
 }
@@ -148,15 +131,11 @@ document.getElementById("opcoes").innerHTML = opcoes;
 
 function abrirAulas(){
 
-
 document.getElementById("painel").style.display="none";
-
 
 document.getElementById("telaAulas").style.display="block";
 
-
 mostrarAulas();
-
 
 }
 
@@ -169,25 +148,15 @@ mostrarAulas();
 function salvarAula(){
 
 
-let nome = document.getElementById("nomeAula").value;
+let aula={
 
-let dia = document.getElementById("diaAula").value;
+nome:document.getElementById("nomeAula").value,
 
-let horario = document.getElementById("horarioAula").value;
+dia:document.getElementById("diaAula").value,
 
-let professor = document.getElementById("professorAula").value;
+horario:document.getElementById("horarioAula").value,
 
-
-
-let aula = {
-
-nome:nome,
-
-dia:dia,
-
-horario:horario,
-
-professor:professor
+professor:document.getElementById("professorAula").value
 
 };
 
@@ -196,19 +165,10 @@ professor:professor
 aulas.push(aula);
 
 
+localStorage.setItem("aulas",JSON.stringify(aulas));
+
 
 mostrarAulas();
-
-
-
-document.getElementById("nomeAula").value="";
-
-document.getElementById("diaAula").value="";
-
-document.getElementById("horarioAula").value="";
-
-document.getElementById("professorAula").value="";
-
 
 
 }
@@ -222,28 +182,131 @@ document.getElementById("professorAula").value="";
 function mostrarAulas(){
 
 
-let lista = document.getElementById("listaAulas");
+let lista=document.getElementById("listaAulas");
+
+
+lista.innerHTML="";
+
+
+aulas.forEach(function(aula){
+
+
+let item=document.createElement("li");
+
+
+item.innerHTML=
+
+"🥋 "+aula.nome+
+"<br>"+
+"📅 "+aula.dia+
+" ⏰ "+aula.horario+
+"<br>"+
+"Professor: "+aula.professor+
+"<br><br>";
+
+
+lista.appendChild(item);
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+function abrirAlunos(){
+
+
+document.getElementById("painel").style.display="none";
+
+document.getElementById("telaAlunos").style.display="block";
+
+
+mostrarAlunos();
+
+
+}
+
+
+
+
+
+
+
+function salvarAluno(){
+
+
+let aluno={
+
+
+nome:document.getElementById("nomeAluno").value,
+
+nascimento:document.getElementById("nascimentoAluno").value,
+
+telefone:document.getElementById("telefoneAluno").value,
+
+faixa:document.getElementById("faixaAluno").value,
+
+grau:document.getElementById("grauAluno").value,
+
+aula:document.getElementById("aulaAluno").value,
+
+professor:document.getElementById("professorAluno").value
+
+
+};
+
+
+
+alunos.push(aluno);
+
+
+localStorage.setItem("alunos",JSON.stringify(alunos));
+
+
+mostrarAlunos();
+
+
+}
+
+
+
+
+
+
+
+function mostrarAlunos(){
+
+
+let lista=document.getElementById("listaAlunos");
 
 
 lista.innerHTML="";
 
 
 
-aulas.forEach(function(aula){
+alunos.forEach(function(aluno){
 
 
-let item = document.createElement("li");
+let item=document.createElement("li");
 
 
-item.innerHTML =
+item.innerHTML=
 
-"🥋 "+aula.nome+
+"🥋 "+aluno.nome+
 "<br>"+
-"📅 "+aula.dia+
+"Faixa: "+aluno.faixa+
+" - Grau: "+aluno.grau+
 "<br>"+
-"⏰ "+aula.horario+
+"Aula: "+aluno.aula+
 "<br>"+
-"Professor: "+aula.professor+
+"Professor: "+aluno.professor+
 "<br><br>";
 
 
@@ -251,12 +314,11 @@ item.innerHTML =
 lista.appendChild(item);
 
 
-
 });
 
 
-
 }
+
 
 
 
@@ -268,6 +330,8 @@ function voltarPainel(){
 
 
 document.getElementById("telaAulas").style.display="none";
+
+document.getElementById("telaAlunos").style.display="none";
 
 
 document.getElementById("painel").style.display="block";
@@ -283,8 +347,6 @@ document.getElementById("painel").style.display="block";
 
 function sair(){
 
-
 location.reload();
 
-
-  }
+}
