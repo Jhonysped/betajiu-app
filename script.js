@@ -4,6 +4,8 @@ let aulas = JSON.parse(localStorage.getItem("aulas")) || [];
 
 let alunos = JSON.parse(localStorage.getItem("alunos")) || [];
 
+let professores = JSON.parse(localStorage.getItem("professores")) || [];
+
 
 
 
@@ -24,20 +26,17 @@ perfilAtual = "Administrador";
 
 }
 
-
 else if(usuario == "professor" && senha == "1234"){
 
 perfilAtual = "Professor";
 
 }
 
-
 else if(usuario == "aluno" && senha == "1234"){
 
 perfilAtual = "Aluno";
 
 }
-
 
 else{
 
@@ -53,16 +52,13 @@ return;
 
 
 
-document.getElementById("login").style.display = "none";
+document.getElementById("login").style.display="none";
 
-
-document.getElementById("painel").style.display = "block";
-
+document.getElementById("painel").style.display="block";
 
 
 document.getElementById("tituloPainel").innerHTML =
 "Painel - " + perfilAtual;
-
 
 
 mostrarMenu();
@@ -74,16 +70,17 @@ mostrarMenu();
 
 
 
-// MENUS
+
+// MENU
 
 function mostrarMenu(){
 
 
-let opcoes = "";
+let opcoes="";
 
 
 
-if(perfilAtual == "Administrador"){
+if(perfilAtual=="Administrador"){
 
 
 opcoes =
@@ -92,7 +89,7 @@ opcoes =
 
 "<button onclick='abrirAlunos()'>👥 Alunos</button><br><br>"+
 
-"<button>🥋 Professores</button><br><br>"+
+"<button onclick='abrirProfessores()'>🥋 Professores</button><br><br>"+
 
 "<button>📢 Avisos</button><br><br>"+
 
@@ -104,7 +101,8 @@ opcoes =
 
 
 
-if(perfilAtual == "Professor"){
+
+if(perfilAtual=="Professor"){
 
 
 opcoes =
@@ -118,12 +116,13 @@ opcoes =
 "🥋 Graduações";
 
 
-
 }
 
 
 
-if(perfilAtual == "Aluno"){
+
+
+if(perfilAtual=="Aluno"){
 
 
 opcoes =
@@ -137,8 +136,8 @@ opcoes =
 "📢 Avisos";
 
 
-
 }
+
 
 
 
@@ -174,26 +173,26 @@ mostrarAulas();
 
 
 
-
-
 function salvarAula(){
 
 
-
-let aula = {
-
-
-nome: document.getElementById("nomeAula").value,
+let aula={
 
 
-dia: document.getElementById("diaAula").value,
+nome:
+document.getElementById("nomeAula").value,
 
 
-horario: document.getElementById("horarioAula").value,
+dia:
+document.getElementById("diaAula").value,
 
 
-professor: document.getElementById("professorAula").value
+horario:
+document.getElementById("horarioAula").value,
 
+
+professor:
+document.getElementById("professorAula").value
 
 
 };
@@ -222,34 +221,28 @@ mostrarAulas();
 
 
 
-
 function mostrarAulas(){
 
 
-let lista = document.getElementById("listaAulas");
+let lista=document.getElementById("listaAulas");
 
 
-lista.innerHTML = "";
+lista.innerHTML="";
 
 
 
 aulas.forEach(function(aula){
 
 
-let item = document.createElement("li");
+let item=document.createElement("li");
 
 
+item.innerHTML=
 
-item.innerHTML =
-
-"🥋 " + aula.nome +
-
-"<br>📅 " + aula.dia +
-
-"<br>⏰ " + aula.horario +
-
-"<br>Professor: " + aula.professor +
-
+"🥋 "+aula.nome+
+"<br>📅 "+aula.dia+
+"<br>⏰ "+aula.horario+
+"<br>Professor: "+aula.professor+
 "<br><br>";
 
 
@@ -263,6 +256,7 @@ lista.appendChild(item);
 
 
 }
+
 
 
 
@@ -292,13 +286,10 @@ mostrarAlunos();
 
 
 
-
-
 function salvarAluno(){
 
 
-
-let aluno = {
+let aluno={
 
 
 nome:
@@ -321,7 +312,6 @@ grau:
 document.getElementById("grauAluno").value
 
 
-
 };
 
 
@@ -331,11 +321,8 @@ alunos.push(aluno);
 
 
 localStorage.setItem(
-
 "alunos",
-
 JSON.stringify(alunos)
-
 );
 
 
@@ -352,37 +339,29 @@ mostrarAlunos();
 
 
 
-
 function mostrarAlunos(){
 
 
-let lista = document.getElementById("listaAlunos");
+let lista=document.getElementById("listaAlunos");
 
 
-lista.innerHTML = "";
+lista.innerHTML="";
 
 
 
 alunos.forEach(function(aluno){
 
 
-let item = document.createElement("li");
+let item=document.createElement("li");
 
 
+item.innerHTML=
 
-item.innerHTML =
-
-
-"🥋 " + aluno.nome +
-
-"<br>Faixa: " + aluno.faixa +
-
-"<br>Grau: " + aluno.grau +
-
-"<br>📅 Nascimento: " + aluno.nascimento +
-
-"<br>📱 Telefone: " + aluno.telefone +
-
+"🥋 "+aluno.nome+
+"<br>Faixa: "+aluno.faixa+
+"<br>Grau: "+aluno.grau+
+"<br>📅 Nascimento: "+aluno.nascimento+
+"<br>📱 Telefone: "+aluno.telefone+
 "<br><br>";
 
 
@@ -394,7 +373,6 @@ lista.appendChild(item);
 });
 
 
-
 }
 
 
@@ -404,36 +382,20 @@ lista.appendChild(item);
 
 
 
-// NAVEGAÇÃO
+
+// PROFESSORES
 
 
-function voltarPainel(){
+function abrirProfessores(){
 
 
-document.getElementById("telaAulas").style.display="none";
+document.getElementById("painel").style.display="none";
 
 
-document.getElementById("telaAlunos").style.display="none";
+document.getElementById("telaProfessores").style.display="block";
 
 
-
-document.getElementById("painel").style.display="block";
-
-
-
-}
-
-
-
-
-
-
-
-
-function sair(){
-
-
-location.reload();
+mostrarProfessores();
 
 
 }
