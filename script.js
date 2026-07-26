@@ -1,110 +1,85 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>BetaJiu</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
+let alunos = [];
 
 
-<body>
+function abrirAlunos(){
 
-<header>
-    <h1>🥋 BetaJiu</h1>
-    <p>Gestão para academias de Jiu-Jitsu</p>
-</header>
+document.getElementById("inicio").style.display="none";
 
+document.getElementById("alunos").style.display="block";
 
-<main>
-
-<h2 id="titulo">
-Bem-vindo!
-</h2>
+}
 
 
-<div id="inicio">
+function voltarInicio(){
 
-<p>
-Controle de alunos, graduações e presença.
-</p>
+document.getElementById("inicio").style.display="block";
 
-<button onclick="abrirAlunos()">
-👥 Alunos
-</button>
+document.getElementById("alunos").style.display="none";
 
-<button>
-🥋 Graduações
-</button>
-
-<button>
-📅 Presença
-</button>
-
-<button>
-🏆 Campeonatos
-</button>
-
-</div>
+}
 
 
 
-<div id="alunos" style="display:none">
+function salvarAluno(){
 
-<h2>Cadastro de Alunos</h2>
+let nome = document.getElementById("nome").value;
 
-
-<input id="nome" placeholder="Nome do aluno">
-
-
-<select id="faixa">
-
-<option>Branca</option>
-<option>Azul</option>
-<option>Roxa</option>
-<option>Marrom</option>
-<option>Preta</option>
-
-</select>
+let faixa = document.getElementById("faixa").value;
 
 
-<button onclick="salvarAluno()">
-Salvar Aluno
-</button>
+if(nome==""){
+
+alert("Digite o nome do aluno");
+
+return;
+
+}
 
 
-<h3>Alunos cadastrados:</h3>
+let aluno = {
+
+nome:nome,
+
+faixa:faixa
+
+};
 
 
-<ul id="listaAlunos"></ul>
+alunos.push(aluno);
 
 
-<button onclick="voltarInicio()">
-⬅ Voltar
-</button>
+mostrarAlunos();
 
 
-</div>
+document.getElementById("nome").value="";
 
 
-</main>
+}
 
 
 
-<footer>
+function mostrarAlunos(){
 
-<p>
-BetaJiu © 2026
-</p>
-
-</footer>
+let lista=document.getElementById("listaAlunos");
 
 
-<script src="script.js"></script>
+lista.innerHTML="";
 
-</body>
 
-</html>
+alunos.forEach(function(aluno){
+
+
+let item=document.createElement("li");
+
+
+item.innerHTML=
+aluno.nome + " - Faixa " + aluno.faixa;
+
+
+lista.appendChild(item);
+
+
+});
+
+
+}
