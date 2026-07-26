@@ -29,12 +29,15 @@
 <main>
 
 
+<!-- LOGIN -->
+
 <div id="login">
 
 <h2>Login</h2>
 
 
 <input id="usuario" placeholder="Usuário">
+
 
 <input id="senha" type="password" placeholder="Senha">
 
@@ -46,11 +49,14 @@ ENTRAR
 
 <p id="mensagem"></p>
 
+
 </div>
 
 
 
 
+
+<!-- PAINEL PRINCIPAL -->
 
 <div id="painel" style="display:none">
 
@@ -60,6 +66,8 @@ ENTRAR
 
 <div id="opcoes"></div>
 
+
+<br>
 
 <button onclick="sair()">
 Sair
@@ -72,6 +80,7 @@ Sair
 
 
 
+<!-- TELA DE AULAS -->
 
 <div id="telaAulas" style="display:none">
 
@@ -81,9 +90,12 @@ Sair
 
 <input id="nomeAula" placeholder="Nome da aula">
 
+
 <input id="diaAula" placeholder="Dia da semana">
 
+
 <input id="horarioAula" placeholder="Horário">
+
 
 <input id="professorAula" placeholder="Professor">
 
@@ -93,9 +105,12 @@ Salvar Aula
 </button>
 
 
+
 <h3>Aulas cadastradas:</h3>
 
+
 <ul id="listaAulas"></ul>
+
 
 
 <button onclick="voltarPainel()">
@@ -109,6 +124,9 @@ Salvar Aula
 
 
 
+
+
+<!-- TELA DE ALUNOS -->
 
 <div id="telaAlunos" style="display:none">
 
@@ -125,24 +143,64 @@ Salvar Aula
 <input id="telefoneAluno" placeholder="Telefone">
 
 
+
+<label>
+🥋 Faixa atual
+</label>
+
+
 <select id="faixaAluno">
 
+
 <option>Branca</option>
+
+
+<option>Infantil - Cinza com Branco</option>
+
+<option>Infantil - Cinza</option>
+
+<option>Infantil - Cinza com Preto</option>
+
+
+
+<option>Infantil - Amarela com Branco</option>
+
+<option>Infantil - Amarela</option>
+
+<option>Infantil - Amarela com Preto</option>
+
+
+
+<option>Infantil - Laranja com Branco</option>
+
+<option>Infantil - Laranja</option>
+
+<option>Infantil - Laranja com Preto</option>
+
+
+
+<option>Infantil - Verde com Branco</option>
+
+<option>Infantil - Verde</option>
+
+<option>Infantil - Verde com Preto</option>
+
+
+
 <option>Azul</option>
+
 <option>Roxa</option>
+
 <option>Marrom</option>
+
 <option>Preta</option>
+
 
 </select>
 
 
+
 <input id="grauAluno" placeholder="Grau">
-
-
-<input id="aulaAluno" placeholder="Aula">
-
-
-<input id="professorAluno" placeholder="Professor">
 
 
 
@@ -170,6 +228,7 @@ Salvar Aluno
 
 
 
+
 </main>
 
 
@@ -189,4 +248,4 @@ BetaJiu © 2026
 
 </body>
 
-</html>
+  </html>
