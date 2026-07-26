@@ -36,7 +36,6 @@
 
 <input id="usuario" placeholder="Usuário">
 
-
 <input id="senha" type="password" placeholder="Senha">
 
 
@@ -46,7 +45,6 @@ ENTRAR
 
 
 <p id="mensagem"></p>
-
 
 </div>
 
@@ -74,6 +72,7 @@ Sair
 
 
 
+
 <div id="telaAulas" style="display:none">
 
 
@@ -82,12 +81,9 @@ Sair
 
 <input id="nomeAula" placeholder="Nome da aula">
 
-
 <input id="diaAula" placeholder="Dia da semana">
 
-
 <input id="horarioAula" placeholder="Horário">
-
 
 <input id="professorAula" placeholder="Professor">
 
@@ -97,11 +93,69 @@ Salvar Aula
 </button>
 
 
-
 <h3>Aulas cadastradas:</h3>
 
-
 <ul id="listaAulas"></ul>
+
+
+<button onclick="voltarPainel()">
+⬅ Voltar
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div id="telaAlunos" style="display:none">
+
+
+<h2>👥 Cadastro de Alunos</h2>
+
+
+<input id="nomeAluno" placeholder="Nome completo">
+
+
+<input id="nascimentoAluno" placeholder="Data nascimento">
+
+
+<input id="telefoneAluno" placeholder="Telefone">
+
+
+<select id="faixaAluno">
+
+<option>Branca</option>
+<option>Azul</option>
+<option>Roxa</option>
+<option>Marrom</option>
+<option>Preta</option>
+
+</select>
+
+
+<input id="grauAluno" placeholder="Grau">
+
+
+<input id="aulaAluno" placeholder="Aula">
+
+
+<input id="professorAluno" placeholder="Professor">
+
+
+
+<button onclick="salvarAluno()">
+Salvar Aluno
+</button>
+
+
+
+<h3>Alunos cadastrados:</h3>
+
+
+<ul id="listaAlunos"></ul>
 
 
 
@@ -110,8 +164,8 @@ Salvar Aula
 </button>
 
 
-
 </div>
+
 
 
 
