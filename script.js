@@ -1,85 +1,105 @@
-let alunos = [];
+function entrar(){
 
 
-function abrirAlunos(){
+let usuario = document.getElementById("usuario").value;
 
-document.getElementById("inicio").style.display="none";
-
-document.getElementById("alunos").style.display="block";
-
-}
+let senha = document.getElementById("senha").value;
 
 
-function voltarInicio(){
+let perfil = "";
 
-document.getElementById("inicio").style.display="block";
 
-document.getElementById("alunos").style.display="none";
+if(usuario=="admin" && senha=="1234"){
+
+perfil="Administrador";
 
 }
 
 
+else if(usuario=="professor" && senha=="1234"){
 
-function salvarAluno(){
+perfil="Professor";
 
-let nome = document.getElementById("nome").value;
-
-let faixa = document.getElementById("faixa").value;
+}
 
 
-if(nome==""){
+else if(usuario=="aluno" && senha=="1234"){
 
-alert("Digite o nome do aluno");
+perfil="Aluno";
+
+}
+
+
+else{
+
+document.getElementById("mensagem").innerHTML=
+"Usuário ou senha incorretos";
 
 return;
 
 }
 
 
-let aluno = {
 
-nome:nome,
+document.getElementById("login").style.display="none";
 
-faixa:faixa
-
-};
+document.getElementById("painel").style.display="block";
 
 
-alunos.push(aluno);
+document.getElementById("tituloPainel").innerHTML=
+"Bem-vindo - " + perfil;
 
 
-mostrarAlunos();
+
+let opcoes="";
 
 
-document.getElementById("nome").value="";
+
+if(perfil=="Administrador"){
+
+opcoes=
+"👥 Alunos<br><br>"+
+"🥋 Professores<br><br>"+
+"📅 Treinos<br><br>"+
+"📊 Relatórios";
+
+}
+
+
+
+if(perfil=="Professor"){
+
+opcoes=
+"👥 Minha turma<br><br>"+
+"✅ Fazer chamada<br><br>"+
+"📝 Avaliações<br><br>"+
+"🥋 Graduações";
+
+}
+
+
+
+if(perfil=="Aluno"){
+
+opcoes=
+"🥋 Minha graduação<br><br>"+
+"📅 Meus treinos<br><br>"+
+"📈 Minha evolução<br><br>"+
+"📢 Avisos";
+
+}
+
+
+
+document.getElementById("opcoes").innerHTML=opcoes;
 
 
 }
 
 
 
-function mostrarAlunos(){
+function sair(){
 
-let lista=document.getElementById("listaAlunos");
-
-
-lista.innerHTML="";
-
-
-alunos.forEach(function(aluno){
-
-
-let item=document.createElement("li");
-
-
-item.innerHTML=
-aluno.nome + " - Faixa " + aluno.faixa;
-
-
-lista.appendChild(item);
-
-
-});
-
+location.reload();
 
 }
