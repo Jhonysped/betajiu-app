@@ -1,1 +1,9 @@
-
+{
+  "name": "Betajiu",
+  "short_name": "Betajiu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d47a1",
+  "theme_color": "#0d47a1",
+  "icons": []
+}
