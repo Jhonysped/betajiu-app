@@ -29,15 +29,11 @@
 <main>
 
 
-<!-- LOGIN -->
-
 <div id="login">
 
 <h2>Login</h2>
 
-
 <input id="usuario" placeholder="Usuário">
-
 
 <input id="senha" type="password" placeholder="Senha">
 
@@ -49,14 +45,11 @@ ENTRAR
 
 <p id="mensagem"></p>
 
-
 </div>
 
 
 
 
-
-<!-- PAINEL PRINCIPAL -->
 
 <div id="painel" style="display:none">
 
@@ -80,7 +73,7 @@ Sair
 
 
 
-<!-- TELA DE AULAS -->
+<!-- AULAS -->
 
 <div id="telaAulas" style="display:none">
 
@@ -105,12 +98,10 @@ Salvar Aula
 </button>
 
 
-
 <h3>Aulas cadastradas:</h3>
 
 
 <ul id="listaAulas"></ul>
-
 
 
 <button onclick="voltarPainel()">
@@ -124,9 +115,7 @@ Salvar Aula
 
 
 
-
-
-<!-- TELA DE ALUNOS -->
+<!-- ALUNOS -->
 
 <div id="telaAlunos" style="display:none">
 
@@ -151,57 +140,33 @@ Salvar Aula
 
 <select id="faixaAluno">
 
-
 <option>Branca</option>
 
-
 <option>Infantil - Cinza com Branco</option>
-
 <option>Infantil - Cinza</option>
-
 <option>Infantil - Cinza com Preto</option>
 
-
-
 <option>Infantil - Amarela com Branco</option>
-
 <option>Infantil - Amarela</option>
-
 <option>Infantil - Amarela com Preto</option>
 
-
-
 <option>Infantil - Laranja com Branco</option>
-
 <option>Infantil - Laranja</option>
-
 <option>Infantil - Laranja com Preto</option>
 
-
-
 <option>Infantil - Verde com Branco</option>
-
 <option>Infantil - Verde</option>
-
 <option>Infantil - Verde com Preto</option>
 
-
-
 <option>Azul</option>
-
 <option>Roxa</option>
-
 <option>Marrom</option>
-
 <option>Preta</option>
-
 
 </select>
 
 
-
 <input id="grauAluno" placeholder="Grau">
-
 
 
 <button onclick="salvarAluno()">
@@ -209,12 +174,10 @@ Salvar Aluno
 </button>
 
 
-
 <h3>Alunos cadastrados:</h3>
 
 
 <ul id="listaAlunos"></ul>
-
 
 
 <button onclick="voltarPainel()">
@@ -229,7 +192,57 @@ Salvar Aluno
 
 
 
+
+<!-- PROFESSORES -->
+
+<div id="telaProfessores" style="display:none">
+
+
+<h2>🥋 Cadastro de Professores</h2>
+
+
+<input id="nomeProfessor" placeholder="Nome completo">
+
+
+<input id="telefoneProfessor" placeholder="Telefone">
+
+
+<input id="emailProfessor" placeholder="E-mail">
+
+
+<input id="faixaProfessor" placeholder="Faixa">
+
+
+<input id="grauProfessor" placeholder="Grau">
+
+
+
+<button onclick="salvarProfessor()">
+Salvar Professor
+</button>
+
+
+
+<h3>Professores cadastrados:</h3>
+
+
+<ul id="listaProfessores"></ul>
+
+
+
+<button onclick="voltarPainel()">
+⬅ Voltar
+</button>
+
+
+</div>
+
+
+
+
+
 </main>
+
 
 
 
@@ -243,9 +256,10 @@ BetaJiu © 2026
 
 
 
+
 <script src="script.js"></script>
 
 
 </body>
 
-  </html>
+</html>
