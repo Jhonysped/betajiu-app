@@ -112,3 +112,93 @@ function sair(){
 location.reload();
 
 }
+let aulas=[];
+
+
+function abrirAulas(){
+
+document.getElementById("painel").style.display="none";
+
+document.getElementById("telaAulas").style.display="block";
+
+}
+
+
+
+function salvarAula(){
+
+let nome=document.getElementById("nomeAula").value;
+
+let dia=document.getElementById("diaAula").value;
+
+let horario=document.getElementById("horarioAula").value;
+
+let professor=document.getElementById("professorAula").value;
+
+
+
+let aula={
+
+nome:nome,
+
+dia:dia,
+
+horario:horario,
+
+professor:professor
+
+};
+
+
+
+aulas.push(aula);
+
+
+mostrarAulas();
+
+
+}
+
+
+
+function mostrarAulas(){
+
+let lista=document.getElementById("listaAulas");
+
+
+lista.innerHTML="";
+
+
+aulas.forEach(function(aula){
+
+
+let item=document.createElement("li");
+
+
+item.innerHTML=
+
+"🥋 "+aula.nome+
+"<br>"+
+aula.dia+" - "+aula.horario+
+"<br>"+
+"Professor: "+aula.professor+
+"<br><br>";
+
+
+lista.appendChild(item);
+
+
+});
+
+
+}
+
+
+
+function voltarPainel(){
+
+document.getElementById("telaAulas").style.display="none";
+
+document.getElementById("painel").style.display="block";
+
+}
