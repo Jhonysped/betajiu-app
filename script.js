@@ -58,6 +58,15 @@ let opcoes="";
 if(perfil=="Administrador"){
 
 opcoes=
+"<button onclick='abrirAulas()'>📅 Aulas</button><br><br>"+
+"👥 Alunos<br><br>"+
+"🥋 Professores<br><br>"+
+"📢 Avisos<br><br>"+
+"📊 Relatórios";
+
+}
+
+opcoes=
 "👥 Alunos<br><br>"+
 "🥋 Professores<br><br>"+
 "📅 Treinos<br><br>"+
